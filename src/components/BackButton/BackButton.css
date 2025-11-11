@@ -1,0 +1,22 @@
+.back__button {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 5%;
+  left: 2%;
+}
+
+.back__icon {
+  transform: rotate(315deg);
+  font-size: 40px;
+  transition: transform 0.3s ease;
+}
+
+.back__button:hover .back__icon {
+  transform: rotate(315deg) scale(1.2);
+}
+
+.back__text {
+  margin-left: 25px;
+}

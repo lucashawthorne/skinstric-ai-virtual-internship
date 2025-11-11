@@ -1,0 +1,167 @@
+.testing__page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.analysis {
+  position: absolute;
+  top: 9%;
+  left: 2.5%;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* === ROTATING SQUARES CONTAINER === */
+.rotating__squares {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === INDIVIDUAL SQUARES === */
+.square {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  transform-origin: center;
+  border: 3px dotted #000;
+  background-color: transparent;
+  border-radius: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Outer square */
+.square__outer {
+  width: 600px;
+  height: 600px;
+  opacity: 0.1;
+  animation: rotateOuter 50s linear infinite;
+}
+
+/* Middle square */
+.square__middle {
+  width: 550px;
+  height: 550px;
+  opacity: 0.2;
+  animation: rotateMiddle 70s linear infinite;
+}
+
+/* Inner square */
+.square__inner {
+  width: 400px;
+  height: 400px;
+  opacity: 0.3;
+  animation: rotateInner 85s linear infinite;
+}
+
+/* === INPUT FIELDS (centered inside the squares) === */
+.form__prompt {
+  color: rgba(128, 128, 128, 0.645);
+}
+
+.form__container {
+  text-align: center;
+}
+
+.form__input {
+  font-size: 60px;
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  width: 100%;
+  max-width: 600px;
+  padding-top: 10px;
+}
+
+.form__input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.input__fields {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  z-index: 5;
+}
+
+.input__fields input {
+  padding: 10px 15px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  width: 200px;
+  text-align: center;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input__fields input:focus {
+  transform: scale(1.05);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.error__message {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in;
+}
+
+h2 {
+  font-weight: 100;
+}
+
+h3 {
+  font-weight: 100;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === ANIMATIONS === */
+@keyframes rotateOuter {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}
+
+@keyframes rotateMiddle {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}
+
+@keyframes rotateInner {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(405deg);
+  }
+}

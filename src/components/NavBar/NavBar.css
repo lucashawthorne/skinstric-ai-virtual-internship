@@ -2,6 +2,10 @@
   padding: 24px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
 }
 
 .left__nav {

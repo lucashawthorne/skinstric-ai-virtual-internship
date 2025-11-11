@@ -1,0 +1,22 @@
+.proceed__button {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 5%;
+  right: 2%;
+}
+
+.proceed__icon {
+  transform: rotate(45deg);
+  font-size: 40px;
+  transition: transform 0.3s ease;
+}
+
+.proceed__button:hover .proceed__icon {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.proceed__text {
+  margin-right: 25px;
+}
