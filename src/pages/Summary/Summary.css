@@ -88,7 +88,7 @@
   border-top: 2px solid #000;
   padding: 40px 60px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
   width: 850px;
@@ -103,7 +103,6 @@
   margin: 0;
   align-self: flex-start;
 }
-
 
 /* RIGHT: List of options */
 .demographics__list {
@@ -141,7 +140,6 @@
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
 }
-
 
 .demographics__list--header {
   display: flex;
@@ -189,4 +187,127 @@
 
 .demographics__list--item.selected .diamond-icon {
   color: white;
+}
+
+/* -------------------------------
+   SUMMARY PAGE MEDIA QUERIES
+---------------------------------*/
+
+@media (max-width: 1300px) {
+  .demographics__grid {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(200px, 1fr) minmax(
+        150px,
+        1fr
+      );
+    gap: 20px;
+    justify-items: center;
+  }
+
+  .demographics__pie {
+    right: 20%;
+    width: 400px;
+    height: 500px;
+    padding: 30px 40px;
+  }
+
+  .demographics__list {
+    width: 90%;
+    max-width: 300px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .demographics__tabs {
+    position: relative;
+    right: 20%;
+  }
+
+  .demographics__pie {
+    right: 30%;
+    width: 400px;
+    height: 500px;
+    padding: 30px 40px;
+  }
+
+  .demographics__list {
+    width: 90%;
+    max-width: 300px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 900px) {
+  html,
+  body {
+    overflow: scroll;
+  }
+
+  .summary__title {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .demographics__section {
+    top: 70px;
+    height: auto;
+  }
+
+  .demographics__tabs {
+    margin-top: 20px;
+    left: -6%;
+  }
+
+  .demographics__pie {
+    margin-top: 20px;
+    left: -6%;
+  }
+
+  .piechart__container {
+    position: relative;
+    margin-top: 20px;
+    left: 16%;
+  }
+
+  .demographics__grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .demographics__list {
+    left: -6%;
+    margin-bottom: 100px;
+  }
+
+  .demographics__pie,
+  .demographics__list,
+  .demographics__tabs {
+    width: 90%; /* fit mobile width */
+    max-width: 350px; /* optional */
+    height: auto; /* allow content to dictate height */
+  }
+}
+
+@media (max-width: 714px) {
+
+  .summary__button--container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px;
+    background-color: white;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+  .back__button, .forward__button {
+    bottom: 17%;
+  }
 }

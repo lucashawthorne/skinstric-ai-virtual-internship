@@ -134,9 +134,7 @@ const Summary = () => {
                   }}
                 >
                   <p>
-                    {tab === "SEX"
-                      ? toUpper(topValue)
-                      : capitalize(topValue)}
+                    {tab === "SEX" ? toUpper(topValue) : capitalize(topValue)}
                   </p>
                   <span>{tab}</span>
                 </div>
@@ -201,8 +199,14 @@ const Summary = () => {
         </div>
       </div>
 
-      <BackButton to="/select" label="BACK" />
-      <ForwardButton to="/" label="HOME" />
+      <div className="summary__button--container">
+        <div className="bottom__button--back">
+          <BackButton to="/select" label="BACK" />
+        </div>
+        <div className="bottom__button--home">
+          <ForwardButton to="/" label="HOME" />
+        </div>
+      </div>
     </div>
   );
 };
