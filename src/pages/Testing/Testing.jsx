@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./testing.css";
+import "./Testing.css";
 import { Link } from "react-router-dom";
 import BackButton from "../../components/BackButton/BackButton";
 import LoadingDots from "../../components/LoadingDots/LoadingDots";
