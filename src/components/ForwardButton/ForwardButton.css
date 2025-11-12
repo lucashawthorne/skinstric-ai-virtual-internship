@@ -1,4 +1,4 @@
-.proceed__button {
+.forward__button {
   cursor: pointer;
   position: absolute;
   display: flex;
@@ -7,16 +7,16 @@
   right: 2%;
 }
 
-.proceed__icon {
+.forward__icon {
   transform: rotate(45deg);
   font-size: 40px;
   transition: transform 0.3s ease;
 }
 
-.proceed__button:hover .proceed__icon {
+.forward__button:hover .forward__icon {
   transform: rotate(45deg) scale(1.2);
 }
 
-.proceed__text {
+.forward__text {
   margin-right: 25px;
 }

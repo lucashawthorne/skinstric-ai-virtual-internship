@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { BsArrowUpLeftSquare } from "react-icons/bs";
 import "./BackButton.css";
 
-const BackButton = () => {
+const BackButton = ({ to = "/", label = "BACK" }) => {
   return (
-    <Link to={"/"} className="back__button">
+    <Link to={to} className="back__button">
       <BsArrowUpLeftSquare className="back__icon" />
-      <span className="back__text">BACK</span>
+      <span className="back__text">{label}</span>
     </Link>
   );
 };

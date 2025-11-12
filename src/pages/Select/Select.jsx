@@ -1,8 +1,8 @@
 import React from "react";
-import BackButtonResult from "../../components/BackButton/BackButtonResult";
+import BackButton from "../../components/BackButton/BackButton";
 import "./Select.css";
-import SummaryButton from "../../components/SummaryButton/SummaryButton";
 import { useNavigate } from "react-router-dom";
+import ForwardButton from "../../components/ForwardButton/ForwardButton";
 
 const Select = () => {
   const navigate = useNavigate();
@@ -49,8 +49,8 @@ const Select = () => {
         <div className="dotted__diamond dotted__diamond--medium"></div>
         <div className="dotted__diamond dotted__diamond--large"></div>
       </div>
-      <BackButtonResult />
-      <SummaryButton />
+      <BackButton to="/result" label="BACK" />
+      <ForwardButton to="/summary" label="SUMMARY" />
     </div>
   );
 };
