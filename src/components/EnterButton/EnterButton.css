@@ -1,0 +1,25 @@
+.enter__button {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border: none;
+  color: black;
+  position: relative;
+  z-index: 1;
+}
+
+.enter__icon {
+  transform: rotate(45deg);
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.enter__button:hover .enter__icon {
+  transform: rotate(45deg) scale(1.2);
+}
+
+.enter__text {
+  margin-right: 10px;
+  font-weight: bold;
+}

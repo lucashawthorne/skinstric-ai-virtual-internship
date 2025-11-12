@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsArrowUpLeftSquare } from "react-icons/bs";
 import { BsArrowUpRightSquare } from "react-icons/bs";
+import EnterButton from "../../components/EnterButton/EnterButton";
 
 const Home = () => {
   const [hoverLeft, setHoverLeft] = useState(false);
@@ -78,6 +79,22 @@ const Home = () => {
         HIGHLY-PERSONALIZED ROUTINE TAILORED TO <br />
         WHAT YOUR SKIN NEEDS.
       </p>
+
+      {/* Mobile version */}
+      <div className="home__mobile">
+        <div className="diamond__outer"></div>
+        <div className="diamond__inner"></div>
+
+        <h1>Sophisticated <br />skincare</h1>
+        <p className="mobile__para">
+          Skinstric developed an A.I. that creates a <br />highly-personalized routine
+          tailored to <br />what your skin needs.
+        </p>
+        <EnterButton
+          to="/testing"
+          label="Enter Experience"
+        />
+      </div>
     </div>
   );
 };
