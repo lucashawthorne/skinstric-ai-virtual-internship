@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./testing.css";
 import { Link } from "react-router-dom";
 import BackButton from "../../components/BackButton/BackButton";
-import ProceedButton from "../../components/ProceedButton/ProceedButton";
 import LoadingDots from "../../components/LoadingDots/LoadingDots";
 import ForwardButton from "../../components/ForwardButton/ForwardButton";
 
@@ -126,8 +125,6 @@ const Testing = () => {
           )}
         </div>
       </div>
-
-      {/* Buttons row: BackButton always visible, ProceedButton only on success */}
       <div className="buttons__container">
         <BackButton to="/" label="BACK" />
         {status === "success" && <ForwardButton to="/result" label="PROCEED" />}
