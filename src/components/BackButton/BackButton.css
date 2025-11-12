@@ -20,3 +20,9 @@
 .back__text {
   margin-left: 25px;
 }
+
+@media (max-width: 1024px) {
+  .back__button {
+    margin-left: 20px;
+  }
+}

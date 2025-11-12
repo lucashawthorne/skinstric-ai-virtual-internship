@@ -20,3 +20,9 @@
 .forward__text {
   margin-right: 25px;
 }
+
+@media (max-width: 1024px) {
+  .forward__button {
+    margin-right: 20px;
+  }
+}

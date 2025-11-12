@@ -165,3 +165,52 @@ h3 {
     transform: translate(-50%, -50%) rotate(405deg);
   }
 }
+
+
+/* === MEDIA QUERIES FOR TESTING PAGE === */
+
+/* 768px and below */
+@media (max-width: 768px) {
+  .testing__square--outer {
+    width: 400px;
+    height: 400px;
+  }
+
+  .testing__square--middle {
+    width: 350px;
+    height: 350px;
+  }
+
+  .testing__square--inner {
+    width: 250px;
+    height: 250px;
+  }
+
+  .form__input {
+    font-size: 40px;
+    max-width: 90%;
+  }
+}
+
+/* 640px and below */
+@media (max-width: 640px) {
+  .testing__square--outer {
+    width: 300px;
+    height: 300px;
+  }
+
+  .testing__square--middle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .testing__square--inner {
+    width: 180px;
+    height: 180px;
+  }
+
+  .form__input {
+    font-size: 32px;
+    max-width: 90%;
+  }
+}
