@@ -302,7 +302,6 @@
    RESULT PAGE MEDIA QUERIES
 ---------------------------------*/
 
-/* 1024px and below */
 @media (max-width: 1024px) {
   .result__page {
     padding: 0 10%; /* reduce side padding */
@@ -341,7 +340,6 @@
 }
 }
 
-/* 768px and below */
 @media (max-width: 768px) {
   .result__page {
     flex-direction: column;

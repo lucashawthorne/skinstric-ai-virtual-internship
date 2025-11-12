@@ -228,3 +228,21 @@ body {
   overflow: hidden;
   background: black;
 }
+
+@media (max-width: 1024px) {
+  .take__picture--text {
+    right: 10%;
+  }
+}
+
+@media (max-width: 900px) {
+  .take__picture--text {
+    right: 12%;
+  }
+}
+
+@media (max-width: 900px) {
+  .take__picture--text {
+    display: none;
+  }
+}
