@@ -1,0 +1,25 @@
+.back__button--white {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 5%;
+  left: 2%;
+  color: white;
+}
+
+.back__icon--white {
+  transform: rotate(315deg);
+  font-size: 40px;
+  transition: transform 0.3s ease;
+  color: white;
+}
+
+.back__button:hover .back__icon {
+  transform: rotate(315deg) scale(1.2);
+}
+
+.back__text--white {
+  margin-left: 25px;
+  color: white;
+}
