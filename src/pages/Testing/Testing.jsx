@@ -3,6 +3,7 @@ import "./testing.css";
 import { Link } from "react-router-dom";
 import BackButton from "../../components/BackButton/BackButton";
 import ProceedButton from "../../components/ProceedButton/ProceedButton";
+import LoadingDots from "../../components/LoadingDots/LoadingDots";
 
 const Testing = () => {
   const [step, setStep] = useState(1);
@@ -65,9 +66,9 @@ const Testing = () => {
 
       {/* Rotating squares */}
       <div className="rotating__squares">
-        <div className="square square__outer"></div>
-        <div className="square square__middle"></div>
-        <div className="square square__inner"></div>
+        <div className="square testing__square--outer"></div>
+        <div className="square testing__square--middle"></div>
+        <div className="square testing__square--inner"></div>
 
         {/* Form / Input container */}
         <div className="form__container">
@@ -105,12 +106,8 @@ const Testing = () => {
 
           {status === "loading" && (
             <>
-              <p className="form__prompt">Processing submission...</p>
-              <div className="loader">
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
+              <p className="loading__text">Processing submission...</p>
+              <LoadingDots />
             </>
           )}
 

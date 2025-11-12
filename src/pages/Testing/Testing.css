@@ -43,7 +43,7 @@
 }
 
 /* Outer square */
-.square__outer {
+.testing__square--outer {
   width: 600px;
   height: 600px;
   opacity: 0.1;
@@ -51,7 +51,7 @@
 }
 
 /* Middle square */
-.square__middle {
+.testing__square--middle {
   width: 550px;
   height: 550px;
   opacity: 0.2;
@@ -59,7 +59,7 @@
 }
 
 /* Inner square */
-.square__inner {
+.testing__square--inner {
   width: 400px;
   height: 400px;
   opacity: 0.3;
