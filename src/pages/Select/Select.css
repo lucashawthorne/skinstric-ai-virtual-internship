@@ -1,0 +1,142 @@
+/* ANALYSIS TEXT */
+.analysis__text {
+  position: absolute;
+  top: 60px;
+  left: 24px;
+}
+
+.analysis__title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.analysis__para {
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+.select__page {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.select__container {
+  position: relative;
+  width: 380px;
+  height: 380px;
+}
+
+.diamond__button {
+  position: absolute;
+  width: 153px;
+  height: 153px;
+  background-color: rgb(243, 244, 246);
+  border: none;
+  transform: rotate(45deg);
+  cursor: not-allowed;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diamond__button:hover {
+  background-color: rgb(210, 213, 219);
+}
+
+/* Top (active) */
+.diamond__top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  background-color: rgb(230, 231, 235);
+  cursor: pointer;
+}
+
+/* Left */
+.diamond__left {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Right */
+.diamond__right {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Bottom */
+.diamond__bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* Label text (rotated back horizontally) */
+.diamond__label {
+  transform: rotate(-45deg);
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* DIAMOND HOVER EFFECTS */
+
+.dotted__diamond {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg) scale(0.8);
+  border: 2px dotted rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Size variants */
+.dotted__diamond--small {
+  width: 400px;
+  height: 400px;
+}
+
+.dotted__diamond--medium {
+  width: 440px;
+  height: 440px;
+}
+
+.dotted__diamond--large {
+  width: 480px;
+  height: 480px;
+}
+
+/* Hover triggers */
+.diamond__top:hover ~ .dotted__diamond--small {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+.diamond__left:hover ~ .dotted__diamond--medium,
+.diamond__right:hover ~ .dotted__diamond--medium {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}
+
+.diamond__bottom:hover ~ .dotted__diamond--large {
+  opacity: 1;
+  transform: translate(-50%, -50%) rotate(45deg) scale(1);
+}

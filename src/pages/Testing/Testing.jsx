@@ -23,14 +23,18 @@ const Testing = () => {
           setError("");
           setStep(2);
         } else {
-          setError("Please enter a valid name without numbers or special characters");
+          setError(
+            "Please enter a valid name without numbers or special characters"
+          );
         }
       } else if (step === 2) {
         if (isValidString(location)) {
           setError("");
           submitData();
         } else {
-          setError("Please enter a valid city name without numbers or special characters");
+          setError(
+            "Please enter a valid city name without numbers or special characters"
+          );
         }
       }
     }
@@ -51,7 +55,9 @@ const Testing = () => {
         }
       );
       const data = await res.json();
-      console.log(data);
+      console.log({
+        SUCCESS: `Added ${name} from ${location}`,
+      });
       setStatus("success");
     } catch (err) {
       console.error(err);
