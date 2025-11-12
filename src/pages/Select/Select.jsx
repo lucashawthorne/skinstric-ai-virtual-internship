@@ -1,13 +1,17 @@
 import React from "react";
 import BackButton from "../../components/BackButton/BackButton";
 import "./Select.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ForwardButton from "../../components/ForwardButton/ForwardButton";
 
 const Select = () => {
+  const location = useLocation();
   const navigate = useNavigate();
+  const imageBase64 = location.state?.imageBase64;
+
   const handleDemographicsClick = () => {
-    navigate("/summary");
+    // Navigate to summary and pass along the Base64 image
+    navigate("/summary", { state: { imageBase64 } });
   };
 
   return (
@@ -20,7 +24,6 @@ const Select = () => {
         </p>
       </div>
       <div className="select__container">
-        {/* Top button (active) */}
         <button
           className="diamond__button diamond__top"
           onClick={handleDemographicsClick}
@@ -28,7 +31,6 @@ const Select = () => {
           <span className="diamond__label">DEMOGRAPHICS</span>
         </button>
 
-        {/* Left button */}
         <button className="diamond__button diamond__left" disabled>
           <span className="diamond__label">
             COSMETIC
@@ -36,12 +38,10 @@ const Select = () => {
           </span>
         </button>
 
-        {/* Right button */}
         <button className="diamond__button diamond__right" disabled>
           <span className="diamond__label">SKIN TYPE DETAILS</span>
         </button>
 
-        {/* Bottom button */}
         <button className="diamond__button diamond__bottom" disabled>
           <span className="diamond__label">WEATHER</span>
         </button>

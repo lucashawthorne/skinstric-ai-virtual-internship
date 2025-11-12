@@ -1,0 +1,18 @@
+.piechart__container {
+  width: 360px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.piechart__fill {
+  transition: stroke-dashoffset 0.6s ease;
+}
+
+.piechart__text {
+  font-size: 20px;
+  font-weight: 700;
+  fill: #000;
+}

@@ -27,16 +27,18 @@ const Result = () => {
     }
 
     const reader = new FileReader();
-    reader.onloadend = () => setPreviewSrc(reader.result);
+    reader.onloadend = () => {
+      const base64 = reader.result;
+      setPreviewSrc(base64);
+
+      // navigate to /select and pass imageBase64
+      setIsLoading(true);
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate("/select", { state: { imageBase64: base64 } });
+      }, 2000);
+    };
     reader.readAsDataURL(file);
-
-    setIsLoading(true);
-
-    setTimeout(() => {
-      setIsLoading(false);
-      alert("Image analyzed successfully!");
-      navigate("/select");
-    }, 5000); // simulate API processing
   };
 
   const handleAllowCamera = () => {
@@ -133,9 +135,13 @@ const Result = () => {
             {showScanModal && (
               <div className="modal__overlay">
                 <div className="modal__content">
-                  <p className="modal__text">ALLOW A.I. TO ACCESS YOUR CAMERA</p>
+                  <p className="modal__text">
+                    ALLOW A.I. TO ACCESS YOUR CAMERA
+                  </p>
                   <div className="modal__buttons">
-                    <button onClick={() => setShowScanModal(false)}>DENY</button>
+                    <button onClick={() => setShowScanModal(false)}>
+                      DENY
+                    </button>
                     <button onClick={handleAllowCamera}>ALLOW</button>
                   </div>
                 </div>

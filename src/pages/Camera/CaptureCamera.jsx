@@ -84,10 +84,9 @@ const CaptureCamera = () => {
   const handleUsePhoto = () => {
     setIsAnalyzing(true);
 
-    // Simulate analysis/loading
     setTimeout(() => {
       setIsAnalyzing(false);
-      navigate("/select"); // redirect to /select after 2 seconds
+      navigate("/select", { state: { imageBase64: capturedImage } });
     }, 2000);
   };
 
