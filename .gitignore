@@ -34,3 +34,4 @@ dist/
 
 # VS Code settings
 .vscode/
+.vercel
