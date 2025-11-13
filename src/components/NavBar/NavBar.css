@@ -1,12 +1,11 @@
 .navbar {
-  padding: 24px;
+  padding: 24px 24px 0 24px;
   display: flex;
   justify-content: space-between;
   position: fixed;
   z-index: 1;
   top: 0;
   width: 100%;
-  background-color: white;
 }
 
 .left__nav {
@@ -34,4 +33,10 @@
 .nav__button--text {
   font-size: 8px;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    background-color: white;
+  }
 }
