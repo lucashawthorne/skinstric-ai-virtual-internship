@@ -7,11 +7,11 @@ import ForwardButton from "../../components/ForwardButton/ForwardButton";
 const Select = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const imageBase64 = location.state?.imageBase64;
+  const { imageBase64, demographics } = location.state || {};
 
   const handleDemographicsClick = () => {
     // Navigate to summary and pass along the Base64 image
-    navigate("/summary", { state: { imageBase64 } });
+    navigate("/summary", { state: { imageBase64, demographics } });
   };
 
   return (

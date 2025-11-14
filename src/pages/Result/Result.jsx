@@ -27,17 +27,41 @@ const Result = () => {
     }
 
     const reader = new FileReader();
-    reader.onloadend = () => {
+    reader.onloadend = async () => {
       const base64 = reader.result;
       setPreviewSrc(base64);
-
-      // navigate to /select and pass imageBase64
       setIsLoading(true);
-      setTimeout(() => {
+
+      try {
+        const response = await fetch(
+          "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ image: base64 }),
+          }
+        );
+
+        const result = await response.json();
+        console.log("API response:", result);
+
+        if (!result.success || !result.data) {
+          throw new Error(result.message || "Analysis failed");
+        }
+
+        navigate("/select", {
+          state: {
+            imageBase64: base64,
+            demographics: result.data,
+          },
+        });
+      } catch (err) {
+        console.error("API error:", err);
+        alert("There was an error analyzing your image.");
         setIsLoading(false);
-        navigate("/select", { state: { imageBase64: base64 } });
-      }, 2000);
+      }
     };
+
     reader.readAsDataURL(file);
   };
 

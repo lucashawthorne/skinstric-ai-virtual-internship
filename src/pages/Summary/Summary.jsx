@@ -9,8 +9,8 @@ import "./Summary.css";
 
 const Summary = () => {
   const location = useLocation();
-  const imageBase64 = location.state?.imageBase64;
-
+  const { imageBase64, demographics } = location.state || {};
+  
   const [apiData, setApiData] = useState(null);
   const [selectedTab, setSelectedTab] = useState("RACE");
   const [selectedAttribute, setSelectedAttribute] = useState("");
@@ -46,58 +46,37 @@ const Summary = () => {
     );
 
   useEffect(() => {
-    if (!imageBase64) return;
+    if (!demographics) return;
 
-    const submitImage = async () => {
-      try {
-        const res = await fetch(
-          "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ image: imageBase64 }),
-          }
-        );
+    const racePct = convertToPercentages(demographics.race);
+    const agePct = convertToPercentages(demographics.age);
+    const genderPct = convertToPercentages(demographics.gender);
 
-        const data = await res.json();
-        if (!data?.data) return;
+    setPercentages({ race: racePct, age: agePct, gender: genderPct });
 
-        const racePct = convertToPercentages(data.data.race);
-        const agePct = convertToPercentages(data.data.age);
-        const genderPct = convertToPercentages(data.data.gender);
+    // Default selections
+    const topRace = Object.keys(racePct).reduce((a, b) =>
+      racePct[a] > racePct[b] ? a : b
+    );
+    const topAge = Object.keys(agePct).reduce((a, b) =>
+      agePct[a] > agePct[b] ? a : b
+    );
+    const topGender = Object.keys(genderPct).reduce((a, b) =>
+      genderPct[a] > genderPct[b] ? a : b
+    );
 
-        setPercentages({ race: racePct, age: agePct, gender: genderPct });
+    setSelectedAttribute(topRace);
+    setSidebarSelections({
+      RACE: topRace,
+      AGE: topAge,
+      SEX: topGender,
+    });
 
-        // Default selection
-        const topRace = Object.keys(racePct).reduce((a, b) =>
-          racePct[a] > racePct[b] ? a : b
-        );
-        setSelectedAttribute(topRace);
-        setSidebarSelections({
-          RACE: topRace,
-          AGE: Object.keys(agePct).reduce((a, b) =>
-            agePct[a] > agePct[b] ? a : b
-          ),
-          SEX: Object.keys(genderPct).reduce((a, b) =>
-            genderPct[a] > genderPct[b] ? a : b
-          ),
-        });
-        setApiData(data.data);
-      } catch (err) {
-        console.error("API error:", err);
-      }
-    };
-
-    submitImage();
-  }, [imageBase64]);
+    setApiData(demographics);
+  }, [demographics]);
 
   if (!imageBase64) return <p>No image provided.</p>;
-  if (!apiData)
-    return (
-      <div className="loading__overlay">
-        <p>Loading AI predictions...</p>
-      </div>
-    );
+  if (!demographics) return <p>No prediction data found.</p>;
 
   const currentTabKey = tabKeyMap[selectedTab];
   const tabData = percentages[currentTabKey] || {};

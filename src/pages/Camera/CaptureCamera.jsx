@@ -81,13 +81,42 @@ const CaptureCamera = () => {
   // Handle using the photo
   const navigate = useNavigate();
 
-  const handleUsePhoto = () => {
+  const handleUsePhoto = async () => {
+    if (!capturedImage) return;
+
     setIsAnalyzing(true);
 
-    setTimeout(() => {
+    try {
+      // API expects a JSON object with a key "image"
+      const response = await fetch(
+        "https://us-central1-frontend-simplified.cloudfunctions.net/skinstricPhaseTwo",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ image: capturedImage }),
+        }
+      );
+
+      const result = await response.json();
+      console.log("RAW API RESPONSE:", result);
+
+      if (!result.success || !result.data) {
+        throw new Error(result.message || "Analysis failed");
+      }
+
+      // SUCCESS → navigate with BOTH image + demographics
+      navigate("/select", {
+        state: {
+          imageBase64: capturedImage,
+          demographics: result.data,
+        },
+      });
+    } catch (err) {
+      console.error("API error:", err);
+      alert("There was an error analyzing your photo.");
+    } finally {
       setIsAnalyzing(false);
-      navigate("/select", { state: { imageBase64: capturedImage } });
-    }, 2000);
+    }
   };
 
   return (
