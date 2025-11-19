@@ -140,3 +140,15 @@
   opacity: 1;
   transform: translate(-50%, -50%) rotate(45deg) scale(1);
 }
+
+@media (max-width: 768px) {
+  .select__container {
+    height: 300px;
+    width: 300px;
+  }
+
+  .diamond__button {
+    height: 120px;
+    width: 120px;
+  }
+}
