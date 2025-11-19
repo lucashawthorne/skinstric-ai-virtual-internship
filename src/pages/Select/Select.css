@@ -151,4 +151,19 @@
     height: 120px;
     width: 120px;
   }
+
+  .dotted__diamond--large {
+    width: 380px;
+    height: 380px;
+  }
+
+  .dotted__diamond--medium {
+    width: 350px;
+    height: 350px;
+  }
+
+  .dotted__diamond--small {
+    width: 310px;
+    height: 310px;
+  }
 }
