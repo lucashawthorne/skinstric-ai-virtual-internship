@@ -330,14 +330,15 @@
   }
 
   .scan__text {
-  position: absolute;
-  top: 8%; }
+    position: absolute;
+    top: 8%;
+  }
 
   .upload__text {
-  position: absolute;
-  bottom: 5%;
-  right: 70%;
-}
+    position: absolute;
+    bottom: 5%;
+    right: 70%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -393,5 +394,10 @@
   .scan__line,
   .upload__line {
     display: none; /* optional: hide lines on mobile */
+  }
+
+  .preview__window {
+    width: 120px;
+    height: 120px;
   }
 }
