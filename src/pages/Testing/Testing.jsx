@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Testing.css";
-import { Link } from "react-router-dom";
 import BackButton from "../../components/BackButton/BackButton";
 import LoadingDots from "../../components/LoadingDots/LoadingDots";
 import ForwardButton from "../../components/ForwardButton/ForwardButton";

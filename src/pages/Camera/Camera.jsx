@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ScanImage from "../../assets/camera-icon.webp";
-import BackButton from "../../components/BackButton/BackButton";
 import "./Camera.css";
 
 const Camera = () => {

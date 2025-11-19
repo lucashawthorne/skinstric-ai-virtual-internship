@@ -61,7 +61,6 @@ const CaptureCamera = () => {
     const imageDataUrl = canvas.toDataURL("image/png");
     setCapturedImage(imageDataUrl);
 
-    // Keep "Great shot!" visible permanently
     setShowGreatShot(true);
 
     // Stop the camera stream after taking the picture
@@ -191,7 +190,6 @@ const CaptureCamera = () => {
         </div>
       )}
 
-      {/* Always-visible back button */}
       <BackButtonWhite />
     </div>
   );
